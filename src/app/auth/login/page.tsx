@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/react'
 import { Session } from 'next-auth'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 
 export default function page() {
@@ -32,9 +33,10 @@ export default function page() {
                 Or Login Using 
             </span>
             <div className='google flex justify-between  w-[180px] mt-5'>
-                <Image alt='google ka logo' src={'/googleLogo.png'} height={60} width={60} className='inline-block bg-[#FFFFF7]  rounded-full' onClick={()=>{signIn('google')}}></Image>
-                <Image alt='google ka logo' src={'/githubLogo.png'} height={60} width={60} className='inline-block border border-[#f5f5f5] rounded-full bg-[#f5f5f5]'></Image>
+                <Image alt='google ka logo' src={'/googleLogo.png'} height={60} width={60} className='inline-block bg-[#FFFFF7]  rounded-full hover:cursor-pointer' onClick={()=>{signIn('google')}}></Image>
+                <Image alt='google ka logo' src={'/githubLogo.png'} height={60} width={60} className='inline-block border border-[#f5f5f5] rounded-full bg-[#f5f5f5] hover:cursor-pointer' onClick={()=>{signIn('github')}}></Image>
             </div> 
+            <Link href={"/auth/register"} className='mt-6 hover:underline'>Need an Account?</Link>
            
         </div>
         
