@@ -31,10 +31,11 @@ export default function page() {
         }
         const res=await signIn('credentials',{
             redirect:false,
-            ...user
+            username:user.username,
+            password:user.password,
+            callbackUrl:'/'
         })
-
-        console.log(res);
+        // console.log(res);
     }
   return (
     <>
@@ -42,11 +43,11 @@ export default function page() {
             <h1 className='text-[40px] font-sans' >Login</h1>
             <div className='mt-10 h-auto'>
                 <label htmlFor='username' className='block mb-2 '>Username</label>
-                <input type="text" id='username' name="username" className=' indent-4 h-[47px] w-[420px] shadow-[#231b55] shadow-lg rounded-xl inp'/>
+                <input type="text" id='username' name="username" className=' indent-4 h-[47px] w-[420px] shadow-[#231b55] shadow-lg rounded-xl inp' onChange={handleFieldChange}/>
             </div>
             <div className='mt-8'>
                 <label htmlFor='password' className='block mb-2'>Password</label>
-                <input type="password" id='password' name='password' className='h-[47px] indent-4 w-[420px] shadow-[#231b55] shadow-lg rounded-xl inp'/>
+                <input type="password" id='password' name='password' className='h-[47px] indent-4 w-[420px] shadow-[#231b55] shadow-lg rounded-xl inp' onChange={handleFieldChange}/>
             </div>
             <Button className='mt-8 w-[171px] h-[45px] shadow-[#231b55] shadow-lg ' onClick={handleCredentialSignIn}>
                 Login

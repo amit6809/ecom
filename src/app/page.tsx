@@ -23,7 +23,11 @@ export default function Home() {
   return (
     <>
       <div className='bg-[#1B2123] p-1 w-full h-30' >
-              <img src={data.user.image} alt="userImg" className='inline-block ms-3 mt-2' style={{height:'70%',border:"2px solid white",borderRadius:'50%'}}/>
+              {/* <img src={data.user.image} alt="userImg"   */}
+              {/* <div   */}
+                <Image src={data.user.image=='dummyUser.jpg'?'/dummyUser.jpg':data.user.image} height={40} width={40  } className='inline-block ms-3 mt-2' alt="userImg" style={{height:'70%',border:"2px solid white",borderRadius:'50%'}} />
+
+              {/* </div> */}
               <div className='text-white inline-block ms-8 font-extrabold'>
                 <span>
                   {data.user.name}
